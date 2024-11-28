@@ -1,0 +1,105 @@
+---
+# Note: The contents of this file are automatically generated.
+# Any changes made by hand may be overwritten.
+version: '0.2'
+work_dir: .
+design_root_dir: .
+simulations:
+  - name: sim_included
+    options: '-top work.testbench -L dut -waves waves.mxd +acc+b'
+  - name: sim_uvm
+    options: >-
+      -top work.top_test -L dut -L work -uvm 1.2 +acc+b -waves waves.mxd 
+      +notimingchecks  +UVM_NO_RELNOTES -code-cov b +UVM_TESTNAME=test_basic
+      -cov-db "../test/act_cov/coverage_b_15.db" -sv_seed random
+  - name: sim_from_document
+    options: >-
+      -top work.top_test -L dut -L work -uvm 1.2 +acc+b -waves waves.mxd 
+      +notimingchecks  +UVM_NO_RELNOTES +UVM_TESTNAME=test_from_document
+source_files:
+  - language: verilog
+    path: ..\test\testbench_ez.v
+  - language: verilog
+    path: top_dut.sv
+    library_name: dut
+  - language: verilog
+    path: ..\test\agent_mem.sv
+    options: '-uvm 1.2'
+  - language: verilog
+    path: ..\test\environment.sv
+    options: '-uvm 1.2'
+  - language: verilog
+    path: ..\test\test_basic.sv
+    options: '-uvm 1.2'
+  - language: verilog
+    path: picorv32.v
+    library_name: dut
+    options: '-uvm 1.2'
+  - language: verilog
+    path: ..\test\mem_if.sv
+    options: '-uvm 1.2'
+  - language: verilog
+    path: ..\test\reset_if.sv
+    options: '-uvm 1.2'
+  - language: verilog
+    path: ..\test\pcpi_if.sv
+    options: '-uvm 1.2'
+  - language: verilog
+    path: ..\test\picorv_driver.sv
+    options: '-uvm 1.2'
+  - language: verilog
+    path: ..\test\agent_pcpi.sv
+    options: '-uvm 1.2'
+  - language: verilog
+    path: ..\test\agent_reset.sv
+    options: '-uvm 1.2'
+  - language: verilog
+    path: ..\test\pcpi_driver.sv
+    options: '-uvm 1.2'
+  - language: verilog
+    path: ..\test\reset_driver.sv
+    options: '-uvm 1.2'
+  - language: verilog
+    path: ..\test\virtual_seqr.sv
+    options: '-uvm 1.2'
+  - language: verilog
+    path: ..\test\virtual_seq.sv
+    options: '-uvm 1.2'
+  - language: verilog
+    path: ..\test\top_test.sv
+    options: '-uvm 1.2'
+  - language: verilog
+    path: ..\test\monitor_mem.sv
+    options: '-uvm 1.2'
+  - language: verilog
+    path: ..\test\monitor_reset.sv
+    options: '-uvm 1.2'
+  - language: verilog
+    path: ..\test\reset_req.sv
+    options: '-uvm 1.2'
+  - language: verilog
+    path: ..\test\pcpi_req.sv
+    options: '-uvm 1.2'
+  - language: verilog
+    path: ..\test\monitor_pcpi.sv
+    options: '-uvm 1.2'
+  - language: verilog
+    path: ..\test\scoreboard.sv
+    options: '-uvm 1.2'
+  - language: verilog
+    path: ..\test\coverage.sv
+    options: '-uvm 1.2'
+  - language: verilog
+    path: ..\test\reg_state.sv
+    options: '-uvm 1.2'
+  - language: verilog
+    path: ..\test\storage.sv
+    options: '-uvm 1.2'
+  - language: verilog
+    path: ..\test\test_from_document.sv
+    options: '-uvm 1.2'
+  - language: verilog
+    path: ..\test\assertion.sv
+    options: '-uvm 1.2'
+library_search_paths:
+  - $STD_LIBS\ieee93

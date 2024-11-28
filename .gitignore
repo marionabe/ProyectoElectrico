@@ -1,0 +1,4 @@
+*.log
+.vscode/
+.sv_cache/
+*.mxd
