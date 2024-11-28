@@ -2,3 +2,5 @@
 .vscode/
 .sv_cache/
 *.mxd
+*.tmp
+*.wbk
